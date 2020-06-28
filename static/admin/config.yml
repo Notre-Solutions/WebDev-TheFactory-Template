@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+    
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "articles"
+    label: "articles"
+    folder: "src/content/articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article"}
+      - {label: "Features Post", name: "featuredpost", widget: "boolean", default: true}
+      - {label: "Article", name: "article", widget: object, fields: [
+        {label: "Title", name: "title", widget: string},
+        {label: "Date", name: "date", widget: date},
+        {label: "URL", name: "url", widget: string},
+        {label: "Thumbnail", name: "thumbnail", widget: image}
+      ]}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Landing Page"
+        name: "landingPage"
+        fields:
+          - {label: "Template Key", name: templateKey, widget: "hidden", default: "landing-page"}
+          - {label: "Title", name: title, widget: string, default: "Do something"}
+          
+      - file: "src/content/product-template/index.md"
+        label: "Product Page Template"
+        name: "productPage"
+        fields:
+          - {label: "Template Key", name: templateKey, widget: "hidden", default: "productPageTemplate"}
+          - {label: "Product Page", name: productPageTemplate, widget: object, fields: [
+            {label: "Section A Title", name: sectionATitle, widget: string},
+            {label: "Section B Title", name: sectionBTitle, widget: string},
+            {label: "Section C Titles", name: sectionCTitles, widget: object, fields: [
+              {label: "Title", name: title, widget: string},
+              {label: "Subtitle", name: subtitle, widget: string},
+            ]},
+            {label: "Section D Title", name: sectionDTitle, widget: string},
+            {label: "Section D Subtitle", name: sectionDSubtitle, widget: string},
+            {label: "Section E Title", name: sectionETitle, widget: string},
+            {label: "Side Nav Bar", name: "sideNavBar", widget: list, fields:[
+              {label: "Name", name: "name", widget: string, required: true},
+              {label: "Icon", name: "icon", widget: "string", required: true}
+          ]}
+          ]}
+      
