@@ -1,16 +1,27 @@
 import React from "react";
 import Layout from "../components/layout";
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { graphql } from "gatsby";
+import CardsIcon from "../components/cards/cardsWithIcon";
+import CardsImg from "../components/cards/cardsWithImage";
 
 const Landing = ({ data }) => {
   const {
-    img01,
-    img02,
-    img03,
-    img04,
-    img05,
+    title,
+    subtitle,
+    iconCards,
+    paragraphSection,
+    imgCards,
+    contact,
   } = data.markdownRemark.frontmatter.landingPage;
+  const { phone, address, hours, email } = contact;
+  const { imgCardTitle, cards } = imgCards;
+  const {
+    vertialTitle,
+    paragraph,
+    subTitle,
+    paragraphTitle,
+  } = paragraphSection;
+  const { cardTitle, cardsIcon } = iconCards;
 
   return (
     <Layout current="landing">
@@ -19,8 +30,8 @@ const Landing = ({ data }) => {
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
-              <h1>The Factory</h1>
-              <p class="">THE BEST PLACE FOR WORK TOGETHER</p>
+              <h1>{title}</h1>
+              <p class="">{subtitle}</p>
               <a
                 href="#contact-section-container"
                 class="btn btn-primary btn-lg anchor-link"
@@ -32,140 +43,57 @@ const Landing = ({ data }) => {
           </div>
         </div>
       </div>
-
       <div class="section-container">
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-12 section-container-spacer">
-              <h2 class="text-center">Vivamus laoreet</h2>
+              <h2 class="text-center">{cardTitle}</h2>
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-md-4">
-              <div class="fa-container">
-                <i class="fa fa-comment-o fa-3x" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-center">Consectetur</h3>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident.
-              </p>
-            </div>
-
-            <div class="col-xs-12 col-md-4">
-              <div class="fa-container">
-                <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-center">Malesuada</h3>
-              <p>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
-            <div class="col-xs-12 col-md-4">
-              <div class="fa-container">
-                <i class="fa fa-bell-o fa-3x" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-center">Phasellus</h3>
-              <p>
-                {" "}
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
+            {cardsIcon.map((card) => {
+              return (
+                <CardsIcon heading={card.title} icon={card.icon}>
+                  {card.paragraph}
+                </CardsIcon>
+              );
+            })}{" "}
           </div>
         </div>
       </div>
-
       <div class="section-container section-half-background-image-container">
         <div class="image-column landing-mid-bg"></div>
         <div class="container">
           <div class="row">
             <div class="section-label reveal">
-              <p>Coworking</p>
+              <p>{vertialTitle}</p>
             </div>
             <div class="col-md-6 col-md-offset-6 text-column">
-              <h2>Dui augue orci</h2>
-              <h3>Lorem ipsum</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                sit amet consectetur dolor. Phasellus ut lacus tellus. In
-                pretium lobortis blandit. Nam eu laoreet velit. Vivamus laoreet,
-                sem nec scelerisque elementum, dui augue aliquet urna, ut
-                bibendum purus erat ut massa. Mauris diam orci, feugiat a turpis
-                et, congue accumsan risus. Nulla malesuada leo sodales, auctor
-                augue quis, condimentum lacus. Phasellus sed sollicitudin quam,
-                a bibendum urna.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                sit amet consectetur dolor. Phasellus « ut lacus » tellus. In
-                pretium lobortis blandit.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                sit amet consectetur dolor. Phasellus ut lacus tellus. In
-                pretium lobortis blandit.
-              </p>
+              <h2>{paragraphTitle}</h2>
+              <h3>{subTitle}</h3>
+              {paragraph}{" "}
             </div>
           </div>
         </div>
       </div>
-
       <div class="section-container">
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-12 section-container-spacer">
-              <h2 class="text-center">Consectetur adipiscing</h2>
+              <h2 class="text-center">{imgCardTitle}</h2>
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-md-4">
-              <Img
-                className="img-responsive"
-                alt=""
-                fluid={img02.childImageSharp.fluid}
-              />
-              <h3 class="text-center">Consectetur</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                sit amet consectetur dolor. Phasellus ut lacus tellus. In
-                pretium lobortis blandit.
-              </p>
-            </div>
-
-            <div class="col-xs-12 col-md-4">
-              <Img
-                className="img-responsive"
-                alt=""
-                fluid={img03.childImageSharp.fluid}
-              />
-
-              <h3 class="text-center">Malesuada</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                sit amet consectetur dolor. Phasellus ut lacus tellus. In
-                pretium lobortis blandit.
-              </p>
-            </div>
-            <div class="col-xs-12 col-md-4">
-              <Img
-                className="img-responsive"
-                alt=""
-                fluid={img04.childImageSharp.fluid}
-              />
-              <h3 class="text-center">Phasellus</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                sit amet consectetur dolor. Phasellus ut lacus tellus. In
-                pretium lobortis blandit.
-              </p>
-            </div>
+            {cards.map((card) => {
+              return (
+                <CardsImg heading={card.title} img={card.img}>
+                  {card.paragraph}
+                </CardsImg>
+              );
+            })}{" "}
           </div>
         </div>
       </div>
-
       <div class="">
         <div class="container-fluid">
           <div class="row map-container">
@@ -174,25 +102,24 @@ const Landing = ({ data }) => {
               <div class="row">
                 <div class="col-xs-12 col-sm-6">
                   <h3>Phone</h3>
-                  <p>+ 123 45 67 890</p>
+                  <p>{phone}</p>
 
                   <h3>E-mail</h3>
-                  <p>hello@email.com</p>
+                  <p>{email}</p>
                 </div>
 
                 <div class="col-xs-12 col-sm-6">
                   <h3>Address</h3>
-                  <p>42 rue rouelle 75015, Paris</p>
+                  <p>{address}</p>
 
                   <h3>Open hours</h3>
-                  <p>Mon - Fri : 9AM - 5PM</p>
+                  <p>{hours}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div class="section-container" id="contact-section-container">
         <div class="container contact-form-container">
           <div class="row">
@@ -273,40 +200,41 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         landingPage {
-          img01 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
+          title
+          subtitle
+          iconCards {
+            cardTitle
+            cardsIcon {
+              icon
+              title
+              paragraph
             }
           }
-          img02 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+          paragraphSection {
+            vertialTitle
+            paragraphTitle
+            subTitle
+            paragraph
+          }
+          imgCards {
+            imgCardTitle
+            cards {
+              img {
+                childImageSharp {
+                  fluid(maxWidth: 10000, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
+              title
+              paragraph
             }
           }
-          img03 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img04 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img05 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+          contact {
+            phone
+            address
+            hours
+            email
           }
         }
       }
