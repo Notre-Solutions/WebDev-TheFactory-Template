@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import classnames from "classnames";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class navbar extends React.Component {
   constructor() {
@@ -54,13 +55,13 @@ class navbar extends React.Component {
                     </Link>
                   </li>
                   <li>
-                    <a
+                    <AnchorLink
                       href="#contact-section-container"
-                      title=""
+                      offset={() => 100}
                       class="anchor-link"
                     >
                       Contact Us
-                    </a>
+                    </AnchorLink>
                   </li>
                   <li>
                     <Link to="/components" class="btn btn-default navbar-btn">

@@ -9,6 +9,7 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-netlify-cms-paths`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -37,6 +38,25 @@ module.exports = {
         specialChars: "/:",
       },
     },
+    // {
+    //   resolve: `gatsby-source-googlemaps-static`,
+    //   options: {
+    //     key: "AIzaSyCYYuO8lTA6_BlN2kj5iOxmSGBqfsQG5X4",
+    //     center: `Chicago, IL`,
+    //     query: `Willis Tower`,
+    //     zoom: `10`,
+    //     size: `1000x1000`,
+    //     markers: [
+    //       {
+    //         location: `Chicago, IL`,
+    //         color: `red`,
+    //         label: `Our offices`,
+    //         anchor: `center`,
+    //       },
+    //     ],
+    //   },
+    // },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
