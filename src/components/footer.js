@@ -18,13 +18,13 @@ export default function footer() {
             <div>
               <p>
                 <a href="https://www.twitter.com" class="fa-icon" title="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.facebook.com" class="fa-icon" title="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                  <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.linkedin.com" class="fa-icon" title="">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                  <i class="fab fa-linkedin" aria-hidden="true"></i>
                 </a>
               </p>
             </div>

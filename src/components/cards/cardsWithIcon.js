@@ -11,7 +11,7 @@ const cardsIcon = ({ children, heading, icon }) => {
         data-sal-duration="2000"
       >
         <div className="fa-container">
-          <i className={`fa ${icon} fa-3x`} aria-hidden="true"></i>
+          <i className={`fa ${icon} fa-3x`}></i>
         </div>
         <h3 className="text-center">{heading}</h3>
         <p> {children} </p>

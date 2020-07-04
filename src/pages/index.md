@@ -6,15 +6,15 @@ landingPage:
   iconCards:
     cardTitle: Vivamus laoreet
     cardsIcon:
-      - icon: fa-comment-o
+      - icon: fa-comment
         title: Consectetur
         paragraph: >-
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-      - icon: fa-heart-o
+      - icon: fa-heart
         title: Malesuada
         paragraph: >-
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      - icon: a-bell-o
+      - icon: fa-bell
         title: Phasellus
         paragraph: >-
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
