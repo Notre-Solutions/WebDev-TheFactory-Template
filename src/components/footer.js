@@ -33,17 +33,17 @@ export default function footer() {
                 <small>
                   © Untitled | Website created with{" "}
                   <a
-                    href="http://www.mashup-template.com/"
-                    title="Create website with free html template"
+                    href="http://www.notre-studio.co.uk"
+                    title="Visit Notre Studio to get online"
                   >
-                    Mashup Template
+                    Notre Studio Template
                   </a>
                   /
                   <a
                     href="https://www.unsplash.com/"
                     title="Beautiful Free Images"
                   >
-                    Unsplash
+                    Thanks to Unsplash for the beautiful images
                   </a>
                 </small>
               </p>
