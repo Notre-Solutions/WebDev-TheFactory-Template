@@ -1,7 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 
-// const isClient = typeof window !== "undefined";
+const isClient = typeof window !== "undefined";
 const AnyReactComponent = () => (
   <div className="fa fa-map-marker fa-3x" style={{ color: "red" }}></div>
 );
@@ -14,15 +14,17 @@ const GoogleMap = ({ phone, address, email, hours }) => {
       <div class="container-fluid">
         <div class="row map-container">
           <div id="map">
-            <GoogleMapReact
-              bootstrapURLKeys={{
-                key: "AIzaSyCYYuO8lTA6_BlN2kj5iOxmSGBqfsQG5X4",
-              }}
-              defaultCenter={[lat, lng]}
-              defaultZoom={14}
-            >
-              <AnyReactComponent lat={lat} lng={lng} text="My Marker" />
-            </GoogleMapReact>
+            {isClient && (
+              <GoogleMapReact
+                bootstrapURLKeys={{
+                  key: "AIzaSyCYYuO8lTA6_BlN2kj5iOxmSGBqfsQG5X4",
+                }}
+                defaultCenter={[lat, lng]}
+                defaultZoom={14}
+              >
+                <AnyReactComponent lat={lat} lng={lng} text="My Marker" />
+              </GoogleMapReact>
+            )}
           </div>
           <div
             class="col-xs-10 col-md-4 contact-block-container reveal"
